@@ -1,0 +1,28 @@
+.wrapper{
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-evenly; */
+}
+h3,p{
+    text-align: center;
+}
+button{
+    display: flex;
+    background-color: rgb(44, 204, 204);
+    margin: auto;
+    border: none;
+}
+.container{
+    width: 32%;
+    margin: 10px 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;;
+}
+img{
+    width: 100%;
+}
+.outer{
+    height: 100vh;
+}
+p+div{
+    padding: 5px;
+}
