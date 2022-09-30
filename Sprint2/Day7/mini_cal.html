@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="first" type="number" placeholder="enter first number">
+    <input id="second" type="number" placeholder="enter second number">
+
+    <div>
+        <button id="Add" onclick="add()">Add</button>
+        <button id="Subtarct" onclick="sub()">Subtarct</button>
+        <button id="Multiply" onclick="mul()">Multiply</button>
+        <button id="Divide" onclick="div()">Divide</button>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    function add() {
+        var first = document.getElementById("first").value
+        var second = document.getElementById("second").value
+        var ans = parseInt(first) + parseInt(second)
+        alert(ans)
+
+    }
+    function sub() {
+        var first = document.getElementById("first").value
+        var second = document.getElementById("second").value
+        var ans = parseInt(first) - parseInt(second)
+        alert(ans)
+    }
+    function mul() {
+        var first = document.getElementById("first").value
+        var second = document.getElementById("second").value
+        var ans = parseInt(first) * parseInt(second)
+        alert(ans)
+    }
+    function div() {
+        var first = document.getElementById("first").value
+        var second = document.getElementById("second").value
+        var ans = parseInt(first) / parseInt(second)
+        alert(ans)
+    }
+</script>
