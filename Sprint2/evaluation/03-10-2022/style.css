@@ -1,0 +1,39 @@
+#create *{
+    display: block;
+    
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 95%;
+    
+}
+#create {
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+
+div{
+    padding: 10px;
+}
+div h1{
+    text-align: center;
+}
+
+
+
+div{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 25%;
+}
+
+
+th{
+    background-color: rgb(249, 201, 113);
+
+}
+th,td{
+    margin: 8px;
+    padding: 8px;
+}
