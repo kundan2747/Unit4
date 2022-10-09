@@ -64,6 +64,7 @@
 </html>
 <script>
     var cost = JSON.parse(localStorage.getItem("totalcost"))
+    if (JSON.parse(localStorage.getItem("promoApplied")) == true) cost = cost * 0.7
     document.querySelector("span").innerText = cost
     document.getElementById("btn").addEventListener("click", pay)
     function pay() {

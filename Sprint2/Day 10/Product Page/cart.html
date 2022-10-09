@@ -135,6 +135,7 @@
 
     function reduceprice() {
         var code = document.getElementById("promo").value
+        localStorage.setItem("promoApplied" ,true) || false
         console.log(code)
         var cost = JSON.parse(localStorage.getItem("totalcost")) || 0
         if (code == "masai30") {
