@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database</title>
+  <link rel="stylesheet" href="commonStyles.css" />
+</head>
+
+<body>
+  <div id="links">
+    <div><a href="index.html">Home</a></div>
+    <div><a href="applied.html">Applied Jobs</a></div>
+    <div><a href="bookmark.html">Bookmarks</a></div>
+  </div>
+  <select id="sortname" onchange="handelnamesort()">
+    <option value="">Sort By name</option>
+    <option value="ascending">ascending</option>
+    <option value="descending">descending</option>
+  </select>
+  <select id="sortsalary" onchange="handelsalary()">
+    <option value="">Sort By salary</option>
+    <option value="htl">High to Low</option>
+    <option value="lth">Low to High</option>
+  </select>
+  <select id="filterRole" onchange="handelfilter()">
+    <option value="">Filter By role</option>
+    <option value="all">All</option>
+    <option value="FSD">FSD</option>
+    <option value="Backend">Backend</option>
+    <option value="Frontend">Frontend</option>
+  </select>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Job applied</th>
+          <th>Salary expected</th>
+          <th>Add to bookmark</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+        <!-- Append your output to tbody -->
+      </tbody>
+    </table>
+  </main>
+</body>
+<script>
+  jobArr = JSON.parse(localStorage.getItem("jobList")) || []
+  bookmarkArr = JSON.parse(localStorage.getItem("bookmarks")) || []
+
+  window.addEventListener("load", function () {
+    display(jobArr)
+  })
+
+  function handelnamesort() {
+    var namesort = document.getElementById("sortname").value
+    console.log(namesort)
+    if (namesort == "ascending") {
+      jobArr.sort(function (a, b) {
+        if (a.name > b.name) return 1
+        else if (a.name < b.name) return -1
+        else return 0
+      })
+      display(jobArr)
+    }
+    if (namesort == "descending") {
+      jobArr.sort(function (a, b) {
+        if (a.name > b.name) return -1
+        else if (a.name < b.name) return 1
+        else return 0
+
+      })
+      display(jobArr)
+    }
+  }
+  function handelfilter() {
+    var sel = document.getElementById("filterRole").value
+    console.log(sel)
+    var filterarr = jobArr.filter(function (ele) {
+      if (sel == "all") return true
+      return ele.role == sel
+    })
+    display(filterarr)
+  }
+  function handelsalary() {
+    var salarysel = document.getElementById("sortsalary").value
+    console.log(salarysel)
+    if (salarysel == "lth") {
+      jobArr.sort(function (a, b) {
+        return a.salary - b.salary
+      })
+      display(jobArr)
+
+    }
+    if (salarysel == "htl") {
+      jobArr.sort(function (a, b) {
+        return b.salary - a.salary
+      })
+      display(jobArr)
+    }
+
+  }
+
+
+  function display(arr) {
+    var body = document.querySelector("#body")
+    body.innerText = ""
+    arr.map(function (ele) {
+      var tr = document.createElement("tr")
+      var name = document.createElement("td")
+      var email = document.createElement("td")
+      var role = document.createElement("td")
+      var salary = document.createElement("td")
+      var bookmark = document.createElement("td")
+      name.innerText = ele.name
+      email.innerText = ele.email
+      salary.innerText = ele.salary
+      role.innerText = ele.role
+      bookmark.innerText = "Bookmark"
+      bookmark.style.color = "blue"
+      bookmark.style.cursor = "pointer"
+      tr.append(name, email, role, salary, bookmark)
+      body.append(tr)
+      bookmark.addEventListener("click", function () {
+        addbookmark(ele)
+      })
+
+    })
+
+
+  }
+  function addbookmark(ele) {
+    bookmarkArr.push(ele)
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarkArr))
+  }
+</script>
+
+</html>
