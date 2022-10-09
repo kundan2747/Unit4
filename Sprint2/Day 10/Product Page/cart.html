@@ -26,10 +26,17 @@
             text-align: end;
             padding: 0px 60px;
         }
+
+        #promo {
+            margin-left: 70%;
+            padding: 8px;
+        }
     </style>
 </head>
 
 <body>
+    <input type="text" id="promo" placeholder="Enter the promoCode">
+    <button id="submitbtn">SUBMIT</button>
     <h3 id="total">total</h3>
     <h3 id="tprice">price</h3>
     <div id="container">
@@ -105,6 +112,7 @@
             cost += parseInt(cartArr[i].price)
             cnt++;
         }
+        localStorage.setItem("totalcost", cost)
 
         document.getElementById("total").innerHTML = "<h3> Total Price: " + cost + "</h3>"
         document.getElementById("tprice").innerHTML = "<h3> Number of Items: " + cnt + "</h3>"
@@ -123,6 +131,21 @@
 
 
     }
+    document.getElementById("submitbtn").addEventListener("click", reduceprice)
+
+    function reduceprice() {
+        var code = document.getElementById("promo").value
+        console.log(code)
+        var cost = JSON.parse(localStorage.getItem("totalcost")) || 0
+        if (code == "masai30") {
+            cost = 0.7 * cost
+
+        }
+
+        document.getElementById("total").innerHTML = "<h3> Total Price: " + cost + "</h3>"
+
+    }
+
 
 
 </script>

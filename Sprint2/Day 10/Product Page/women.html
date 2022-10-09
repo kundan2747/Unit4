@@ -492,6 +492,7 @@
     ];
     var container = document.getElementById("container")
     var cartArr = JSON.parse(localStorage.getItem("cart")) || []
+    console.log(cartArr)
     womensData.map(function (ele, i) {
         var div = document.createElement("div")
         var img = document.createElement("img")
@@ -501,20 +502,12 @@
         cartbtn.innerText = "Add to Cart"
         h5.innerText = ele.name
         p.innerText = ele.price
-        img.setAttribute("src", "https://images.unsplash.com/photo-1663697729610-f00917023dd0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY2NTE2NTA2OA&ixlib=rb-1.2.1&q=80&w=300")
+        img.setAttribute("src", "https://static.langimg.com/thumb/msid-79509913,imgsize-96953,width-540,height-405,resizemode-75/women39s-sandals-amazon70-79509913.jpg")
         div.append(img, h5, p, cartbtn)
         container.append(div)
-        cartbtn.addEventListener("click", function () {
-            addToCart(ele)
-        })
+
 
 
 
     })
-
-
-    function addToCart(obj) {
-        cartArr.push(obj)
-        localStorage.setItem("cart", JSON.stringify(cartArr))
-    }
 </script>
