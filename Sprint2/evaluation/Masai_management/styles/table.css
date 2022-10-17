@@ -1,0 +1,16 @@
+table{
+    width: 93%;
+    margin:0 auto;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+td{
+    padding: 5px;
+    text-align: center;
+    margin: 20px;
+}
+th{
+    background-color: orange;
+}
+tr{
+    border-bottom: 1px solid rgba(0, 0, 0,0.1);
+}

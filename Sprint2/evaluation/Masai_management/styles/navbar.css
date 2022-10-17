@@ -1,0 +1,20 @@
+#navbar{
+    display: flex;
+    /* justify-content: space-around; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding-left: 100px;
+    margin-bottom: 100px;
+    
+}
+#navbar div{
+    display: flex;
+    gap: 20px;
+}
+h2{
+    margin-right: 10%;
+}
+a{
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+}
